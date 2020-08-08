@@ -73,9 +73,13 @@ export default class Calendar extends Component {
     return (
       <div className={styles.calendar}>
         <header>
-          <button>{"<"}</button>
+          <button onClick={this.handlePrevMonthButtonClick}>{"<"}</button>
 
-          <select>
+          <select
+            ref={(element) => (this.monthSelect = element)}
+            value={this.month}
+            onChange={this.handleSelectChange}
+          >
             {monthNames.map((month, index) => (
               <option key={month} value={index}>
                 {month}
@@ -83,7 +87,11 @@ export default class Calendar extends Component {
             ))}
           </select>
 
-          <select>
+          <select
+            ref={(element) => (this.yearSelect = element)}
+            value={this.year}
+            onChange={this.handleSelectChange}
+          >
             {years.map((year, index) => (
               <option key={year} value={index}>
                 {year}
@@ -91,7 +99,7 @@ export default class Calendar extends Component {
             ))}
           </select>
 
-          <button>{">"}</button>
+          <button onClick={this.handleNextMonthButtonClick}>{">"}</button>
         </header>
         <table>
           <thead>
