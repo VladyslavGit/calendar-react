@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as calendar from "./Data";
 import classnames from "classnames";
-import styles from "./Calendar.module.css";
+import "./index.css";
 
 export default class Calendar extends Component {
   static defaultProps = {
