@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import * as calendar from "./Data";
+import classnames from "classnames";
 import styles from "./Calendar.module.css";
 
 export default class Calendar extends Component {
@@ -65,14 +67,9 @@ export default class Calendar extends Component {
 
   render() {
     const { years, monthNames, weekDayNames } = this.props;
-    const monthData = [
-      [date, date, date, date, date, date, date],
-      [date, date, date, date, date, date, date],
-      [date, date, date, date, date, date, date],
-      [date, date, date, date, date, date, date],
-      [date, date, date, date, date, date, date],
-      [date, date, date, date, date, date, date],
-    ];
+    const { currentDate, selectedDate } = this.state;
+    const monthData = calendar.getMonthData(this.year, this.month);
+
     return (
       <div className={styles.calendar}>
         <header>
