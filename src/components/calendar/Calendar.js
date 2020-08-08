@@ -71,7 +71,7 @@ export default class Calendar extends Component {
     const monthData = calendar.getMonthData(this.year, this.month);
 
     return (
-      <div className={styles.calendar}>
+      <div className="calendar">
         <header>
           <button onClick={this.handlePrevMonthButtonClick}>{"<"}</button>
 
@@ -80,9 +80,9 @@ export default class Calendar extends Component {
             value={this.month}
             onChange={this.handleSelectChange}
           >
-            {monthNames.map((month, index) => (
-              <option key={month} value={index}>
-                {month}
+            {monthNames.map((name, index) => (
+              <option key={name} value={index}>
+                {name}
               </option>
             ))}
           </select>
@@ -92,8 +92,8 @@ export default class Calendar extends Component {
             value={this.year}
             onChange={this.handleSelectChange}
           >
-            {years.map((year, index) => (
-              <option key={year} value={index}>
+            {years.map((year) => (
+              <option key={year} value={year}>
                 {year}
               </option>
             ))}
@@ -101,6 +101,7 @@ export default class Calendar extends Component {
 
           <button onClick={this.handleNextMonthButtonClick}>{">"}</button>
         </header>
+
         <table>
           <thead>
             <tr>
@@ -109,9 +110,10 @@ export default class Calendar extends Component {
               ))}
             </tr>
           </thead>
+
           <tbody>
             {monthData.map((week, index) => (
-              <tr key={index} className={styles.week}>
+              <tr key={index} className="week">
                 {week.map((date, index) =>
                   date ? (
                     <td
