@@ -111,7 +111,7 @@ export default class Calendar extends Component {
           </thead>
           <tbody>
             {monthData.map((week, index) => (
-              <tr key={index} className="week">
+              <tr key={index} className={styles.week}>
                 {week.map((date, index) =>
                   date ? (
                     <td
